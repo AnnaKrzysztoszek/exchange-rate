@@ -7,7 +7,7 @@ import static java.util.Objects.isNull;
 
 public class CalculationCommand implements Validatable {
 
-	private static final String REQUIRED_FIELD = "is a required field and cannot be blank";
+	private static final String REQUIRED_FIELD = "is required";
 	private static final String NEGATIVE_AMOUNT = "amount can not be less than zero";
 
 	private String from;
@@ -60,6 +60,6 @@ public class CalculationCommand implements Validatable {
 			errors.add("rate", REQUIRED_FIELD);
 
 		if (calculatedAmount.compareTo(BigDecimal.ZERO) < 0)
-			errors.add("negative amount", NEGATIVE_AMOUNT);
+			errors.add("amount", NEGATIVE_AMOUNT);
 	}
 }
